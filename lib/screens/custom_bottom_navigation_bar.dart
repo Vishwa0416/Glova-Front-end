@@ -74,7 +74,7 @@ class _CustomBottomNavigationBar extends State<CustomBottomNavigationBar> {
                 MaterialPageRoute(builder: (context) => const MedAssistAi()),
               );
             },
-            child: const Image(image: AssetImage('assets/Ai.png')),
+            child: const Image(image: AssetImage('assets/Glova.png')),
           ),
           //profile
           GestureDetector(

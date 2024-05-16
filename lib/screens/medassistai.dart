@@ -37,7 +37,7 @@ class MedAssistAi extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(top: 30),
                   child: Text(
-                    'MedAssist AI',
+                    'Glova AI',
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -78,7 +78,7 @@ class MedAssistAi extends StatelessWidget {
             top: 550,
             left: 20,
             child: Text(
-              '1. Gentle Cleanser: Start your day with [Brand Name]s\n hydrating cleanser to cleanse and refresh your skin \n without stripping away natural oils.',
+              '1. Gentle Cleanser: Start your day with Glovas\n hydrating cleanser to cleanse and refresh your skin \n without stripping away natural oils.',
               textAlign: TextAlign.start,
             ),
           ),

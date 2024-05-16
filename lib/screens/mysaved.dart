@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:Glova/screens/appointmentdetails.dart';
+import 'package:Glova/screens/aboutdoctor.dart';
 import 'package:Glova/screens/profilepage.dart';
 import 'package:Glova/screens/custom_bottom_navigation_bar.dart';
 
-class MyAppo extends StatelessWidget {
-  const MyAppo({Key? key}) : super(key: key);
+class MySaved extends StatelessWidget {
+  const MySaved({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +33,11 @@ class MyAppo extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 60,
+                width: 45,
               ),
               //market text
               const Text(
-                'Appointments',
+                'Favourite Doctors',
                 style: TextStyle(
                   fontSize: 25,
                 ),
@@ -65,7 +65,7 @@ class MyAppo extends StatelessWidget {
             ),
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Search for appointments...',
+                hintText: 'Search for favourites...',
                 prefixIcon: const Icon(Icons.search),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
@@ -86,8 +86,7 @@ class MyAppo extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          const AppDet(), // Corrected class name
+                      builder: (context) => const AboutDoctor(),
                     ),
                   );
                 },
@@ -139,7 +138,7 @@ class MyAppo extends StatelessWidget {
                             width: 10,
                           ),
                           Text(
-                            '2024/07/07',
+                            '1km away',
                             style: TextStyle(
                               fontSize: 10,
                             ),

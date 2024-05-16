@@ -1,19 +1,15 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
+import 'package:Glova/screens/faqs.dart';
 import 'package:Glova/screens/home.dart';
 import 'package:Glova/screens/signUpPage.dart';
 import 'package:Glova/screens/myappointments.dart';
-
+import 'package:Glova/screens/mysaved.dart';
+import 'package:Glova/screens/paymentmethod.dart';
 import 'package:Glova/screens/custom_bottom_navigation_bar.dart';
-
 import 'package:http/http.dart' as http;
-
 import '../APIs/userDetails.dart';
-import 'home.dart';
 import 'medassistai.dart';
-import 'signUpPage.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -89,7 +85,7 @@ class ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        //wallpaper
+        // Wallpaper
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/profileback.png'),
@@ -98,14 +94,14 @@ class ProfilePageState extends State<ProfilePage> {
         ),
         child: Stack(
           children: [
-            //Navigation Bar
+            // Navigation Bar
             Positioned(
               bottom: 0,
               left: 0,
               right: 0,
               child: CustomBottomNavigationBar(),
             ),
-            //girl photo and name
+            // Girl photo and name
             const Positioned(
               top: 80,
               left: 150,
@@ -126,7 +122,7 @@ class ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-            //icons
+            // Icons
             const Positioned(
               top: 200,
               left: 50,
@@ -136,9 +132,9 @@ class ProfilePageState extends State<ProfilePage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 0),
-                        child: Image(image: AssetImage('assets/Heartbeat.png')),
+                        child: Image(image: AssetImage('assets/clock 1.png')),
                       ),
-                      Text('Heart Rate\n   215bpm'),
+                      Text('    Age\n    24 yrs'),
                     ],
                   ),
                   SizedBox(
@@ -148,9 +144,9 @@ class ProfilePageState extends State<ProfilePage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 0),
-                        child: Image(image: AssetImage('assets/Fire.png')),
+                        child: Image(image: AssetImage('assets/height 2.png')),
                       ),
-                      Text('Calories\n  756cal'),
+                      Text('  Height\n  175cm'),
                     ],
                   ),
                   SizedBox(
@@ -160,7 +156,7 @@ class ProfilePageState extends State<ProfilePage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 0),
-                        child: Image(image: AssetImage('assets/Barbell.png')),
+                        child: Image(image: AssetImage('assets/weight 1.png')),
                       ),
                       Text('Weight\n103lbs'),
                     ],
@@ -172,44 +168,54 @@ class ProfilePageState extends State<ProfilePage> {
               top: 320,
               child: Column(
                 children: [
-                  //Mysaved part
-                  const Row(
-                    children: [
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Image(
-                        image: AssetImage('assets/Heart.png'),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        'My Saved',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        width: 150,
-                      ),
-                      Image(
-                        image: AssetImage('assets/Arrow.png'),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  //Appointment part
+                  // My Saved Part
                   GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MyAppo(),
+                          builder: (context) => const MySaved(),
                         ),
                       );
                     },
-                    child: Row(
+                    child: const Row(
+                      children: [
+                        SizedBox(
+                          width: 50,
+                        ),
+                        Image(
+                          image: AssetImage('assets/Heart.png'),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'My Saved',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 150,
+                        ),
+                        Image(
+                          image: AssetImage('assets/Arrow.png'),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  // Appointment Part
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyAppo(),
+                        ),
+                      );
+                    },
+                    child: const Row(
                       children: [
                         SizedBox(
                           width: 50,
@@ -233,67 +239,84 @@ class ProfilePageState extends State<ProfilePage> {
                       ],
                     ),
                   ),
-
                   const SizedBox(
                     height: 25,
                   ),
-                  //Payment method
-                  const Row(
-                    children: [
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Image(
-                        image: AssetImage('assets/Payment.png'),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        'Payment Method',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        width: 100,
-                      ),
-                      Image(
-                        image: AssetImage('assets/Arrow.png'),
-                      ),
-                    ],
+                  // Payment Method
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Pay(),
+                        ),
+                      );
+                    },
+                    child: const Row(
+                      children: [
+                        SizedBox(
+                          width: 50,
+                        ),
+                        Image(
+                          image: AssetImage('assets/Payment.png'),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'Payment Method',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 100,
+                        ),
+                        Image(
+                          image: AssetImage('assets/Arrow.png'),
+                        ),
+                      ],
+                    ),
                   ),
-
                   const SizedBox(
                     height: 25,
                   ),
-                  //FAQs
-                  const Row(
-                    children: [
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Image(
-                        image: AssetImage('assets/Faqs.png'),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        'FAQs',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        width: 175,
-                      ),
-                      Image(
-                        image: AssetImage('assets/Arrow.png'),
-                      ),
-                    ],
+                  // FAQs
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Faq(),
+                        ),
+                      );
+                    },
+                    child: const Row(
+                      children: [
+                        SizedBox(
+                          width: 50,
+                        ),
+                        Image(
+                          image: AssetImage('assets/Faqs.png'),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'FAQs',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 175,
+                        ),
+                        Image(
+                          image: AssetImage('assets/Arrow.png'),
+                        ),
+                      ],
+                    ),
                   ),
-
                   const SizedBox(
                     height: 25,
                   ),
-                  //LogOut
+                  // LogOut
                   Row(
                     children: [
                       const SizedBox(
@@ -303,7 +326,7 @@ class ProfilePageState extends State<ProfilePage> {
                         onTap: () {
                           _handleLogout(context);
                         },
-                        child: Row(
+                        child: const Row(
                           children: [
                             Image(
                               image: AssetImage('assets/Logout.png'),
@@ -332,7 +355,7 @@ class ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-            //back button
+            // Back Button
             Positioned(
               top: 35,
               left: 15,
@@ -345,7 +368,7 @@ class ProfilePageState extends State<ProfilePage> {
                     ),
                   );
                 },
-                child: Image(
+                child: const Image(
                   image: AssetImage('assets/back.png'),
                 ),
               ),
