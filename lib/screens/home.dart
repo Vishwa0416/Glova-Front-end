@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:Glova/APIs/imageFilePicker.dart';
 import 'package:Glova/screens/aboutdoctor.dart';
 import 'custom_bottom_navigation_bar.dart';
+import 'package:Glova/screens/ambulance.dart';
 
 import '../APIs/doctorDetails.dart';
 import '../APIs/userDetails.dart';
@@ -71,7 +72,7 @@ class _HomeState extends State<Home> {
               left: 0,
               right: 0,
               child: Padding(
-                padding: EdgeInsets.all(15), // Added 'const'
+                padding: const EdgeInsets.all(15), // Added 'const'
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -122,14 +123,14 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               top: 130,
               left: 0,
               right: 0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Column(
+                  const Column(
                     children: [
                       Image(
                         image: AssetImage('assets/Doctor.png'),
@@ -142,7 +143,7 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
-                  Column(
+                  const Column(
                     children: [
                       Image(
                         image: AssetImage('assets/Pharmacy.png'),
@@ -155,7 +156,7 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
-                  Column(
+                  const Column(
                     children: [
                       Image(
                         image: AssetImage('assets/Hospital.png'),
@@ -168,18 +169,28 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
-                  Column(
-                    children: [
-                      Image(
-                        image: AssetImage('assets/Ambulance.png'),
-                        height: 100,
-                        width: 50,
-                      ),
-                      Text(
-                        'Ambulance',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Ambulance(),
+                        ),
+                      );
+                    },
+                    child: const Column(
+                      children: [
+                        Image(
+                          image: AssetImage('assets/Ambulance.png'),
+                          height: 100,
+                          width: 50,
+                        ),
+                        Text(
+                          'Ambulance',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -219,7 +230,7 @@ class _HomeState extends State<Home> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                DoctorRecommendation()), // Corrected class name
+                                const DoctorRecommendation()), // Corrected class name
                       );
                     },
                     child: const Text(
@@ -266,7 +277,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Text(
                             '$doctorName',
                             style: const TextStyle(

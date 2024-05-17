@@ -145,7 +145,7 @@ class Review extends StatelessWidget {
                   child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
-                        'Was this a MedAssist appointment?',
+                        'Was this a Glova appointment?',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ))),
               const Positioned(
