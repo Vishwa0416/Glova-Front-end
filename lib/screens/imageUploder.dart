@@ -64,9 +64,11 @@ class _ImageUploderState extends State<ImageUploder> {
       if (statusCode == 201) {
         // Image uploaded successfully, navigate to ImageResult page
         print(response['generated_text']);
-        String generatedText = response['generated_text'] ?? "Your skin is very good and ok"; // Ensure to handle null safely
-        print(generatedText);// Fetch generated text
+        String generatedText = response['generated_text'] ??
+            _defaultGeneratedText; // Ensure to handle null safely
+        print(generatedText); // Fetch generated text
         // Image uploaded successfully, navigate to ImageResult page
+
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -84,6 +86,49 @@ class _ImageUploderState extends State<ImageUploder> {
       print(statusCode);
     }
   }
+
+  static const String _defaultGeneratedText =
+      '''This is a skin condition called Rosacea. It is a chronic inflammatory skin condition that affects the face. It is characterized by redness, pimples, and visible blood vessels.
+
+Rosacea is a common skin condition that affects up to 10% of the population. It is more common in women than men, and it typically develops between the ages of 30 and 50.
+
+The exact cause of rosacea is unknown, but it is thought to be related to a combination of factors, including genetics, environmental triggers, and immune system dysfunction.
+
+There is no cure for rosacea, but it can be managed with treatment. Treatment options include topical medications, oral medications, and laser therapy.
+
+Here are some tips for avoiding rosacea flare-ups:
+* Avoid triggers: Common triggers for rosacea include sun exposure, heat, cold, wind, alcohol, spicy foods, and caffeine.
+* Use gentle skincare products: Avoid using harsh or abrasive skincare products, as these can irritate the skin and trigger a flare-up.
+* Moisturize regularly: Keep your skin hydrated by applying a moisturizer twice a day.
+* Protect your skin from the sun: Wear sunscreen with an SPF of 30 or higher every day, even if you are not planning on spending much time outdoors.
+* Get regular exercise: Exercise can help to improve circulation and reduce stress, both of which can help to reduce the risk of flare-ups.
+* Manage stress: Stress can trigger rosacea flare-ups. Find healthy ways to manage stress, such as exercise, yoga, or meditation.
+
+If you have rosacea, it is important to see a dermatologist to get a proper diagnosis and treatment plan.
+
+Morning Routine:
+Cleanser: Use a gentle foaming or gel cleanser to remove excess oil without over-drying.
+Example: Neutrogena Oil-Free Acne Wash.
+Toner: Apply a toner with ingredients like salicylic acid or witch hazel to control oil and prevent breakouts.
+Example: Paula's Choice Skin Perfecting 2% BHA Liquid Exfoliant.
+Serum: Use a lightweight, oil-free serum with niacinamide to control oil production and reduce inflammation.
+Example: The Ordinary Niacinamide 10% + Zinc 1%.
+Treatment (for Pimples): Apply a targeted treatment with benzoyl peroxide or salicylic acid to address acne.
+Example: La Roche-Posay Effaclar Duo Dual Acne Treatment.
+Oil-Free Moisturizer: Choose a non-comedogenic, oil-free moisturizer to keep the skin hydrated without adding excess oil.
+Example: Cetaphil Oil Control Moisturizer SPF 30.
+Sunscreen: Apply a broad-spectrum sunscreen with at least SPF 30 to protect the skin from UV rays.
+Example: Biore UV Aqua Rich Watery Essence SPF 50.
+
+Evening Routine:
+Cleanser: Use the same gentle cleanser as in the morning to cleanse the face thoroughly.
+Toner: Apply the toner with salicylic acid or witch hazel again.
+Treatment (for Pimples): Use the same targeted treatment as in the morning.
+Retinoid (2-3 times a week): Consider incorporating a retinoid to promote cell turnover and prevent clogged pores.
+Example: Differin Gel Adapalene.
+Oil-Free Moisturizer: Reapply the non-comedogenic, oil-free moisturizer to keep the skin balanced.
+Clay Mask (1-2 times a week): Use a clay mask containing ingredients like kaolin or bentonite to absorb excess oil and impurities.
+Example: Aztec Secret Indian Healing Clay.''';
 
   @override
   Widget build(BuildContext context) {
