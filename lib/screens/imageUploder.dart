@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:Glova/screens/profilepage.dart';
 import 'package:flutter/material.dart';
 import 'package:Glova/APIs/imageFilePicker.dart';
 import 'package:http/http.dart' as http;
@@ -62,10 +63,14 @@ class _ImageUploderState extends State<ImageUploder> {
       int? statusCode = response['statusCode'];
       if (statusCode == 201) {
         // Image uploaded successfully, navigate to ImageResult page
+        print(response['generated_text']);
+        String generatedText = response['generated_text'] ?? "Your skin is very good and ok"; // Ensure to handle null safely
+        print(generatedText);// Fetch generated text
+        // Image uploaded successfully, navigate to ImageResult page
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ImageResult(),
+            builder: (context) => ImageResult(generatedText: generatedText),
           ),
         );
       } else {

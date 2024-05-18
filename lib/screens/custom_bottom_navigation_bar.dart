@@ -48,7 +48,7 @@ class _CustomBottomNavigationBar extends State<CustomBottomNavigationBar> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PdfUploader()),
+                MaterialPageRoute(builder: (context) => Market()),
               );
             },
             child: const Image(image: AssetImage('assets/Market.png')),

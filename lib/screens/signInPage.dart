@@ -160,17 +160,17 @@ class _SignUpPageState extends State<SignInPage> {
                   const SizedBox(height: 10),
                   ElevatedButton(
                     //uncomment following comment when testing with backend
-                    // onPressed: signIn,
+                    onPressed: signIn,
 
                     //Only testing purpose (Front end testing)
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                Home()), // Corrected class name
-                      );
-                    },
+                    // onPressed: () {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) =>
+                    //             Home()), // Corrected class name
+                    //   );
+                    // },
                     //end of the testing code
 
                     style: ElevatedButton.styleFrom(
